@@ -2,5 +2,20 @@
 <body>
     <h1>Hello :*</h1>
     <a href="page2.html">page #2</a>
+    <p>
+*** Mixing swift and c++ ***
+
+g++ -c foo.cpp
+ar r foo.a foo.o
+
+g++ testlib.cpp -L. -lfoo -o testlib
+g++ testlib.cpp foo.a -o testlib
+
+gcc -c wrapper.cpp bridge.h -o wrapper.o
+gcc -c wrapper.cpp
+swiftc -c test.swift -import-objc-header bridge.h -o swtest.o
+swiftc -o app wrapper.o swtest.o
+swiftc -o app foo.a wrapper.o swtest.o
+</p>
 </body>
 </html>
